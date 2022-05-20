@@ -166,27 +166,36 @@ text ("Jonm Conway" ,200,350);
 text ("George Pelling",300,410);
 text ("Judor Owen", 340, 470);}
 
-//if ( millis() > 38000) {  //Pantala 3---------------------------------------------------------------------------------------------------------------------------------
-//variabletexto = variabletexto -4;
+if ( millis() > 40000) {{  //Pantala 3---------------------------------------------------------------------------------------------------------------------------------
+image (mancha9,posxmancha9,posymancha9,sizemancha9,sizemancha9);
+sizemancha9 = sizemancha9 + crecimientomancha9;}
+if (sizemancha9 >= 800)
+crecimientomancha9 = -10;
+if (sizemancha9 <= 5) 
+crecimientomancha9 =0;}
+
+if (millis() > 45500){
+fill (255);
+textSize (30);
+text ("Production",80,150); 
+fill (0);
+textSize (35);
+text ("Robert O.Cook", 200,290);
+text ("Donald Halliday" ,200,350);
+text ("Eustace Lycett",300,410);
+text ("Ken Peterson", 340, 470);}
 
 
-//}
+
+
+
 
 
 }
-
-  
-
-
-
-
-
-
-
+}
 //println (sizedalmata);
 println (millis()/1000);
-
-}
+//println (sizemancha9);
 }
 void mousePressed() {
  agrandarImagen = true;}
