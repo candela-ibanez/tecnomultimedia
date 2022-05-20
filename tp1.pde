@@ -19,7 +19,7 @@ float velocidadDalmatas = 3;
 //Manchas
 PImage mancha1;
 float sizemancha1x = 5;
-float sizemancha1y = 4;                                       //image (mancha8,400,300, 30 ,30); }
+float sizemancha1y = 4;                                     
 float crecimientomancha1= 15;
 PImage mancha2;
 float sizemancha2x = 5;
@@ -42,6 +42,19 @@ float sizemancha9 = 20;
 float posxmancha9 = 400;
 float posymancha9 = 300;
 float crecimientomancha9 =10;
+PImage mancha10;
+float sizemancha10 = 10;
+float posxmancha10 = 380;
+float posymancha10 = 300;
+float crecimientomancha10 =10;
+//Partitura
+PImage partitura;
+float partiturax =-400;
+float partituray = 300;
+float partiturasizex = 900;
+float partiturasizey = 600;
+float avancepartitura = 50;
+//image (partitura, 400, 300,900,600);
 
 
 
@@ -59,6 +72,8 @@ mancha6 = loadImage("mancha6.png");
 mancha7 = loadImage("mancha7.png");
 mancha8 = loadImage("mancha8.png");
 mancha9 = loadImage("mancha9.png");
+mancha10 = loadImage("mancha10.png");
+partitura= loadImage("partitura.png");
 Dalgona = createFont ("Dalgona.ttf",50);
 Alegreya = createFont ("Alegreya.ttf",100);
 textFont (Dalgona);
@@ -182,7 +197,7 @@ crecimientomancha9 = -10;
 if (sizemancha9 <= 5) 
 crecimientomancha9 =0;}
 
-if (millis() > 45500){
+if (millis() > 45500 && millis() < 52500){
 fill (255);
 textSize (30);
 text ("Production",80,150); 
@@ -192,6 +207,34 @@ text ("Robert O.Cook", 200,290);
 text ("Donald Halliday" ,200,350);
 text ("Eustace Lycett",300,410);
 text ("Ken Peterson", 340, 470);}
+
+if (millis() > 50000) { // Pantalla 4--------------------------------------------------------------------------------------------------------------------------------
+image (mancha10,posxmancha10,posymancha10,sizemancha10,sizemancha10);
+sizemancha10 = sizemancha10 + crecimientomancha10;
+if (sizemancha10 >= 1000) 
+crecimientomancha10 =0; }
+
+if (millis() > 54000) {
+imageMode (CENTER);
+//image (partitura, 400, 300,900,600); final
+//image (partitura,-500,300,900,600); empieza
+image (partitura, partiturax, partituray ,partiturasizex,partiturasizey);
+partiturax = partiturax + avancepartitura;
+if ( partiturax >= 450) {
+avancepartitura = 0;
+
+if (millis() > 55000) {
+image (mancha1,45,420, 70,70); 
+image (mancha5,280,320, 80,80);
+image (mancha3,490,250, 50,50);
+image (mancha7,535,280, 50,50);
+image (mancha6,570,305, 40,40);
+image (mancha8,750,350,90,90); 
+fill (0);
+textSize (50);
+text ("Music... George Bruns", 200,100);
+
+} }
 
 
 
@@ -204,6 +247,8 @@ text ("Ken Peterson", 340, 470);}
 //println (sizedalmata);
 println (millis()/1000);
 //println (sizemancha9);
+//println (sizemancha10);
+}
 }
 void mousePressed() {
   //circle (400,300,250);  //circulo imaginario que contiene la imagen del dálmata
