@@ -69,7 +69,6 @@ textFont (Alegreya);
 
 void draw () {
 background (255); 
-
 //Título -----------------------------------------------------------------------------------------------------------------------------------------------------------
 if ( millis() >0 &&  millis() < 6000){
 fill (245,0,0);
@@ -78,7 +77,7 @@ textAlign(CENTER);
 text ("101",x101 ,y101);
 y101 = y101 + velocidad101 ;
 if (y101 >= 100) {velocidad101 = 0;}
-  text ("Dalmatas",xDalmatas ,yDalmatas);
+text ("Dalmatas",xDalmatas ,yDalmatas);
 yDalmatas = yDalmatas + velocidadDalmatas ;
 if (yDalmatas >= 170) {velocidadDalmatas = 0;}
 }
@@ -207,4 +206,8 @@ println (millis()/1000);
 //println (sizemancha9);
 }
 void mousePressed() {
+  //circle (400,300,250);  //circulo imaginario que contiene la imagen del dálmata
+  float d1 = dist (mouseX, mouseY,400,300) ;
+  int r = 250/2; 
+  if (d1 < r) 
  agrandarImagen = true;}
