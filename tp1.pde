@@ -19,7 +19,7 @@ float velocidadDalmatas = 3;
 //Manchas
 PImage mancha1;
 float sizemancha1x = 5;
-float sizemancha1y = 4;
+float sizemancha1y = 4;                                       //image (mancha8,400,300, 30 ,30); }
 float crecimientomancha1= 15;
 PImage mancha2;
 float sizemancha2x = 5;
@@ -57,6 +57,8 @@ mancha4 = loadImage("mancha4.png");
 mancha5 = loadImage("mancha5.png");
 mancha6 = loadImage("mancha6.png");
 mancha7 = loadImage("mancha7.png");
+mancha8 = loadImage("mancha8.png");
+mancha9 = loadImage("mancha9.png");
 Dalgona = createFont ("Dalgona.ttf",50);
 Alegreya = createFont ("Alegreya.ttf",100);
 textFont (Dalgona);
@@ -161,7 +163,7 @@ image (mancha5, 600,480, 130 ,130);
 image (mancha6, 130,325, 140 ,140); 
 image (mancha7, 480,mancha7y, 190 ,190); 
 
-if (sizemancha2x <= 180) {
+if (sizemancha2x <= 180 && millis() < 44000) {
 fill (255);
 textSize (30);
 text ("with the talents", 70,150);
