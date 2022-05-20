@@ -36,6 +36,13 @@ PImage mancha5;
 PImage mancha6;
 PImage mancha7;
 float mancha7y = 200;
+PImage mancha8;
+PImage mancha9;
+float sizemancha9 = 20;
+float posxmancha9 = 400;
+float posymancha9 = 300;
+float crecimientomancha9 =10;
+
 
 
 
