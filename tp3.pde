@@ -1,13 +1,3 @@
-//TP3 FINAL
-//HAY QUE EVITAR QUE EL PERSONAJE PUEDA SALIR DE LA PANTALLA
-//SI SE PUEDE, + NIVELES
-// REMPLAZAR LAS FIGURAS GEOMÉTRICAS POR AUTOS Y UN PERSONAJE
-// TERMINAR DE DISEÑAR LA PANTALLA DE INICIO- (podría agregarsele una imagen sprite)
-// hay que agregar algo "nuevo" al juego
-//Autitos en movimiento en pantalla de inicio
-//Cambiar nombre a PrimerNivel
-//Elegir personajes?
-
 
 void setup(){
 size(800, 600 );
