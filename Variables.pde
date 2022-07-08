@@ -16,6 +16,11 @@ float x3 =445;
 float y3 =427;
 PImage nombre;
 PImage cartel;
+float autorojoiniciox = 800;
+float autoazuliniciox = 0;
+
+//Instrucciones
+PImage Instrucciones;
 
 //Créditos
 PImage creditos;
@@ -23,11 +28,13 @@ PImage volver;
 PFont TahomaBold;
 float creditosY =700;
 float avanceCreditos =1;
+PImage cartelcreditos;
 
 //Pantalla perder
 PFont gameover;
 int botonX =700;
 int botonY =550;
+
 
 //Variables personaje
 PImage personaje1;
