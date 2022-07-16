@@ -2,43 +2,30 @@
 
 void setup(){
 size(800, 600 );
+imagenes();
 estado = "pantalla inicial";
-nombre = loadImage("nombre.png");
-cartel= loadImage("cartel.png");
-cartelcreditos= loadImage("cartelcreditos.png");
-creditos= loadImage("creditos.png");
-bandera= loadImage("bandera.png");
-botonreinicio= loadImage("botonreinicio.png");
-volver= loadImage("volver.png");
-personaje1 = loadImage("personaje1.png");
-Instrucciones = loadImage("Instrucciones.png");
-TahomaBold = loadFont("TahomaBold.vlw");
-gameover = createFont ("gameover.ttf",50);
-autoazul = loadImage("autoazul.png");
-autorojo = loadImage("autorojo.png");
 
 for( int i = 0 ; i < velocidad1.length ; i= i+1 ){  
-velocidad1[i] = random( 3,5 );                   
+velocidad1[i] = random(3,5 );                   
 XAutos1[i] = -30; } 
 
 for( int i = 0 ; i < velocidad2.length ; i= i+1 ){  
-velocidad2[i] = random( 3,5);                   
+velocidad2[i] = random(3,5);                   
 XAutos2[i] = 830; } 
 
 }
 
 void draw(){
-println (posX, posY);
-
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if( estado.equals("pantalla inicial") ){
     inicio ();
-
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------  
 }else if( estado.equals("instrucciones") ){
    PantallaInstrucciones ();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 }else if( estado.equals("jugar") ){
-   Juego ();
+   Juego (0,800);
+   
    //personaje
    image (personaje1,posX,posY,30,30); 
    if (posY <= 50)
@@ -51,6 +38,7 @@ if( estado.equals("pantalla inicial") ){
   image (autoazul,XAutos1[n],n * 100 +99, 55, 30 );
   if (XAutos1[n] >=800)
   XAutos1[n] = 0; 
+ 
   float d = dist(XAutos1[n],n * 100 +99,posX,posY);
   if (d < 20) {
   estado = "perder";}}
@@ -62,6 +50,7 @@ if( estado.equals("pantalla inicial") ){
   image ( autorojo,XAutos2[n], n * 100+ 223, 55, 30  );
   if (XAutos2[n] <=0)
   XAutos2[n] = 830; 
+  
   float d = dist(XAutos2[n],n * 100+ 223,posX,posY);
   if (d < 20)
   estado = "perder"; }   
@@ -72,7 +61,7 @@ if( estado.equals("pantalla inicial") ){
   fill (200, 0, 0);
   image (autorojo, posxAuto, posyAuto,50,25); 
   image ( autorojo, posxAuto2,posyAuto2,50,25); 
-  posxAuto = posxAuto -3;
+  posxAuto = posxAuto -6;
   posxAuto2 = posxAuto2 -5;
   if (posxAuto <=0)
   posxAuto = 800; 
@@ -93,10 +82,10 @@ PantallaGanar ();
 PantallaPerder ();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 }else if( estado.equals("creditos finales") ){
-CreditosFinales ();}
+CreditosFinales (400);}
 
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 void mousePressed(){
@@ -125,4 +114,3 @@ if (keyCode == UP)
 posY = posY -avance;
 else if (keyCode == DOWN)
 posY = posY + avance; }
-
