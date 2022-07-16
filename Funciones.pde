@@ -109,3 +109,55 @@ line (posX,525,tam,525);
 image (bandera, 400,6,50,50);
 popStyle (); 
 }
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+void CreditosFinales (float creditosX) {
+background (91,170,27);
+imageMode (CENTER);
+image (creditos,creditosX,300);
+image (volver,750,550,100,110);
+textAlign(CENTER,CENTER);
+textFont(TahomaBold);
+textSize (22);
+text ("Candela Ibañez",creditosX,creditosY );
+text ("Legajo: 87014/9",creditosX,creditosY +50);
+text ("Tecnología Multimedial I",creditosX + 3,creditosY +100);
+text ("Comisión 2",creditosX,creditosY +150);
+text ("Profesor",creditosX,creditosY +200);
+text ("Matías Jauregui Lorda",creditosX,creditosY +220);
+text ("Imágenes: freepng.es",creditosX,creditosY +270);
+creditosY = creditosY -avanceCreditos;
+if (creditosY <= 250)
+avanceCreditos = 0; }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+void reiniciar (){
+estado = "pantalla inicial";
+d1 = dist (mouseX, mouseY,400,425) ;
+r = 120/2; 
+radioCirculo = 120;
+x1 =375;
+y1 =390;
+x2 =375;
+y2 =460;
+x3 =445;
+y3 =427;
+creditosY =620;
+avanceCreditos =1;
+botonX =700;
+botonY =550;
+posX = 400;
+posY = 575;
+avance = 25;
+posxAuto = 830;
+posxAuto2 = 830;
+autorojoiniciox = 800;
+autoazuliniciox = 0;
+
+float[] velocidad1 = new float[5];  
+float[] XAutos1 =  new float[5]; 
+float[] velocidad2 = new float[5];  
+float[] XAutos2 =  new float[5]; 
+
+  
+}
