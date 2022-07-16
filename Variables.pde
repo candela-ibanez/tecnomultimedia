@@ -6,6 +6,18 @@ String estado;
 float d1 = dist (mouseX, mouseY,400,425) ;
 int r = 120/2; 
 
+
+//Variables/arrays autos
+float[] velocidad1 = new float[5];  
+float[] XAutos1 =  new float[5]; 
+
+float[] velocidad2 = new float[5];  
+float[] XAutos2 =  new float[5]; 
+float posxAuto = 830;
+float posxAuto2 = 830;
+PImage autoazul;
+PImage autorojo;
+
 //Variables pantalla inicio
 float radioCirculo = 120;
 float x1 =375;
@@ -26,7 +38,7 @@ PImage Instrucciones;
 PImage creditos;
 PImage volver;
 PFont TahomaBold;
-float creditosY =700;
+float creditosY =620;
 float avanceCreditos =1;
 PImage cartelcreditos;
 
@@ -41,13 +53,3 @@ PImage personaje1;
 float posX = 400;
 float posY = 575;
 int avance = 25;
-
-//Variables/arrays autos
-float[] velocidad1 = new float[5];  
-float[] XAutos1 =  new float[5]; 
-float[] velocidad2 = new float[5];  
-float[] XAutos2 =  new float[5]; 
-float posxAuto = 830;
-float posxAuto2 = 830;
-PImage autoazul;
-PImage autorojo;
