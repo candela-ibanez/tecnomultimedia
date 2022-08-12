@@ -113,4 +113,4 @@ if (key == CODED)
 if (keyCode == UP)
 posY = posY -avance;
 else if (keyCode == DOWN)
-posY = posY + avance; }
+posY = posY + avance;  }
