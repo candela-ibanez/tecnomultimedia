@@ -7,7 +7,7 @@ bandera= loadImage("bandera.png");
 botonreinicio= loadImage("botonreinicio.png");
 volver= loadImage("volver.png");
 personaje1 = loadImage("personaje1.png");
-Instrucciones = loadImage("Instrucciones.png");
+Instrucciones = loadImage("Instrucciones1.png");
 TahomaBold = loadFont("TahomaBold.vlw");
 gameover = createFont ("gameover.ttf",50);
 autoazul = loadImage("autoazul.png");
@@ -41,29 +41,32 @@ if (autorojoiniciox <=0)
 autorojoiniciox=850;
 if (autoazuliniciox >=800)
 autoazuliniciox=-50;
-if (mousePressed == true && (d1 < r)) {
-radioCirculo =100;
-x1 =380; 
-y1= 395;
-x2 =380;
-y2 =455;
-x3 =440;
-y3 =427;}
-if (mousePressed == false){
-radioCirculo =120;
-x1 =375;
-y1 =390;
-x2 =375;
-y2 =460;
-x3 =445;
-y3 =427;}}
+}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void PantallaInstrucciones () {
 background (91,170,27);
 imageMode (CENTER);
 image (Instrucciones, 400,335);
-image (volver,750,550,100,110);}
+image (volver,750,550,100,110);
+Texto ("¡Ayudá al conejo a cruzar la calle!", 400,220,17);
+Texto ("Llegá hasta la bandera roja",400,220+50,17);
+Texto ("esquivando los autos",400,220+70,17);
+Texto ("Si un auto te pisa, el juego",400,220+120,17);
+Texto ("acaba automáticamente",400,220+140,17);
+Texto ("Sólo tenés una vida",400,220+160,17);
+Texto ("Si llegas a la bandera",400,220+210,17);
+Texto ("¡Ganás!",400,220+230,17);
+Texto ("Utilizá las flechas del teclado",400,220+280,17);
+Texto ("para avanzar y retroceder",400,220+300,17);
+}
+
+void Texto (String texto, float X, float Y, int tam){
+textAlign(CENTER,CENTER);
+fill (255);
+textFont(TahomaBold);
+textSize (tam);
+text (texto, X, Y);}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void PantallaGanar () {
