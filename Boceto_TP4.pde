@@ -1,5 +1,5 @@
 //Generar una animación del cuadro  "Mujer ante el sol" de Miró, donde los elementos originales del cuadro esten en movimiento
-//(Ejecutar para ver la imagen original del cuadro)
+//(Ejecutar para ver la imagen original del cuadro o link a la imagen (https://www.wikiart.org/es/joan-miro/woman-in-front-of-the-sun))
 
 PImage cuadro;
 
