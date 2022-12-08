@@ -1,4 +1,3 @@
-
 class GATITO {
 
   float posicionxGatito = mouseX; //Coordenada x
@@ -28,5 +27,8 @@ class GATITO {
     rectMode (CENTER);
  //   rect (mouseX, posicionyGatito, tamano1Gatito -50, tamano2Gatito -50);
     image (gatito, mouseX, posicionyGatito, tamano1Gatito, tamano2Gatito);
-  }
+  }  
+  
+  
+  
 }
