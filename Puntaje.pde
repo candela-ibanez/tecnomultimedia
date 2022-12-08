@@ -1,5 +1,7 @@
 class PUNTAJE {
-
+  //PNERLE POSICIN EN X Y EN YEN EL CONSTRUCTOR
+  float posicionxPuntos; //Coordenada x
+  float posicionyPuntos; //Coordenada y
   int x = 0;
   int a = 0;
   String puntos;
@@ -10,18 +12,24 @@ class PUNTAJE {
   VIDAS vidas3;
 
 
-  PUNTAJE() {
+  PUNTAJE (int posx, int posy) {  //CONSTRUCTOR
+    posicionxPuntos = posx;
+    posicionyPuntos = posy;
+   
   }
 
 
-  void puntaje () {
-    textSize (40);
-    text ("puntos" + x, 25, 70);
+  void puntaje (int tamanioTexto) {
+    textSize (tamanioTexto);
+    fill(255);
+    text ("Puntos " + x, posicionxPuntos, posicionyPuntos);
+    fill(0);
+    text ("Puntos " + x, posicionxPuntos - 3, posicionyPuntos);
   }
 
   void puntajeNegativo () {
     textSize (20);
-    text ("puntos negativos" + a, 25, 100);
+    text ("Puntos negativos" + a, posicionxPuntos, posicionyPuntos);
   }
 
   void subirpuntaje () {
@@ -34,7 +42,6 @@ class PUNTAJE {
 
   void bajarpuntaje () {
     a = a - 1;
-   
   }
 
   void bajarpuntajeExtrema () {
