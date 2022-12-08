@@ -19,12 +19,12 @@ class VIDAS {
   }
 
   void mostrarVidas() {
-    //for (int x = 550; x < 750; x= x + 90) {
+    //for (int x = 550; x < 750; x= x + 90) {   
+    noStroke();
     fill (colorvidas);
     ellipse (posicionxVidas, posicionyVidas, tamano1Vidas, tamano2Vidas);
-   
+    fill(255);
+    textSize(30);
+    text("vida", posicionxVidas, posicionyVidas + 15, tamano1Vidas, tamano2Vidas);
   }
-
-
 }
-//}
