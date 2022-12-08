@@ -10,13 +10,16 @@ class SUSHI {
   float distanSushi;
   color colorsushi;
   int imagen;
+
+  PImage sushi;
+
+  PUNTAJE puntajeJuganding;
+
   //PImage Sushi1;
   //PImage Sushi2;
   //PImage Sushi3;
   //PImage Sushi4;
   //PImage Sushi0; 
-
-  PImage sushi;
 
   SUSHI (float posx, float posy, int ancho, int alto, float velx /* float d1 */) { //CONSTRUCTOR
 
@@ -25,8 +28,8 @@ class SUSHI {
     tamano1Sushi = ancho; 
     tamano2Sushi = alto;
     velXSushi=velx;
-    
-    
+
+
     imagen = int (random (0, 4));  
     sushi = loadImage("Sushi"+imagen+".png");
   }
@@ -48,7 +51,7 @@ class SUSHI {
 
   void mostrar() {
     fill (colorsushi);
-   //rect(posicionxSushi, posicionySushi, tamano1Sushi, tamano2Sushi);
+    //rect(posicionxSushi, posicionySushi, tamano1Sushi, tamano2Sushi);
     image(sushi, posicionxSushi, posicionySushi, tamano1Sushi, tamano2Sushi);
   }
 
@@ -68,26 +71,10 @@ class SUSHI {
     posicionySushi= random(-500, 0);
     posicionxSushi=random(width);
 
-    if (millis()>= 20000) {
-      aumentarVelocidad();
-    }
-
-    if (millis()>= 50000) {
-      aumentarVelocidad2();
-    }
+   
   }
 
   void rebotar() {
     velYSushi=velYSushi*-1;
-  }
-
-  void aumentarVelocidad() {
-    posicionySushi= 0;
-    velXSushi= random(7, 9);
-  }
-
-  void aumentarVelocidad2() {
-    posicionySushi= 0;
-    velXSushi= 12;
   }
 }
