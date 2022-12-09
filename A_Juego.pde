@@ -220,6 +220,7 @@ class JUEGO {
     float DistanBasuras = dist(mouseX, gatito.posicionyGatito, basuraExtrema.posicionxBasura, basuraExtrema.posicionyBasura);
 
     if (DistanBasuras < 90) { 
+      // maullidobasura.trigger ();// accion de comer
       gatito.relleno = color(200, 0, 0);
       basuraExtrema.reciclar(); 
       puntajeJuganding.bajarpuntajeExtrema ();
@@ -244,6 +245,7 @@ class JUEGO {
       float DistanBasuras = dist(mouseX, gatito.posicionyGatito, basuras[i].posicionxBasura, basuras[i].posicionyBasura);
 
       if (DistanBasuras < 90) {   // accion de comer
+        // maullidobasura.trigger ();
         gatito.relleno = color(200, 0, 0);
         basuras[i].reciclar(); 
         puntajeJuganding.bajarpuntaje();
@@ -268,7 +270,7 @@ class JUEGO {
 
     if (key == 'A' || key == 'a'  && estado==0) {
       estado = 1;
-      dojo.loop ();
+      //  dojo.loop ();
     }
 
     if (key == 'b'  && estado==1) {
