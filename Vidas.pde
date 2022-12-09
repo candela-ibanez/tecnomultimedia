@@ -18,8 +18,7 @@ class VIDAS {
     colorvidas = color (200, 0, 0);
   }
 
-  void mostrarVidas() {
-    //for (int x = 550; x < 750; x= x + 90) {   
+  void mostrarVidas() { 
     noStroke();
     fill (colorvidas);
     ellipse (posicionxVidas, posicionyVidas, tamano1Vidas, tamano2Vidas);
