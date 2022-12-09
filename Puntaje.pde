@@ -1,16 +1,11 @@
 class PUNTAJE {
-  //PNERLE POSICIN EN X Y EN YEN EL CONSTRUCTOR
+  
   float posicionxPuntos; //Coordenada x
   float posicionyPuntos; //Coordenada y
   int x = 0;
   int a = 0;
   String puntos;
   int puntoS;
-
-  VIDAS vidas1;
-  VIDAS vidas2;
-  VIDAS vidas3;
-
 
   PUNTAJE (int posx, int posy) {  //CONSTRUCTOR
     posicionxPuntos = posx;
