@@ -3,19 +3,18 @@ class JUEGO {
   SUSHI [] sushis = new SUSHI[5];       //Arreglo Sushis
   SUSHI sushiExtremo;
   GATITO gatito;                        //Declaracion de clases dentro de clase principal
-  GATITO gatitoGO;
   BASURA [] basuras = new BASURA[5];    //Declaracion de clases dentro de clase principal
   BASURA basuraExtrema;
-  //VIDAS [] vidas = new VIDAS[3];
   VIDAS vidas1;
   VIDAS vidas2;
   VIDAS vidas3;
   PUNTAJE puntajeJuganding;
 
 
-  
+
   PImage restaurant;
   PImage paisaje;
+  PImage instrucciones;
   int estado;
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------------  
@@ -24,6 +23,7 @@ class JUEGO {
 
     restaurant = loadImage("restaurant.JPG");
     paisaje=loadImage("paisaje.jpg");
+    instrucciones=loadImage("instrucciones.jpg");
 
     estado = 0;
 
@@ -36,10 +36,9 @@ class JUEGO {
     vidas2 = new VIDAS(width-150, 70, 70, 70);
     vidas3 = new VIDAS(width-250, 70, 70, 70);
 
-    gatito= new GATITO (width/2, 700, 200, 200);
-    gatitoGO= new GATITO (width/2, 520, 80, 80); 
-    
-    
+    gatito= new GATITO (mouseX, 700, 200, 200);
+
+
 
 
     for (int i=0; i<basuras.length; i++) {
@@ -48,7 +47,7 @@ class JUEGO {
 
     for (int i=0; i<sushis.length; i++) {
       sushis[i] = new SUSHI ((random (50, 750)), (random(-height/2, 0)), 120, 120, (random(5, 8)));
-    }                       //Declarar arreglo Sushis con ciclo for
+    }                       //Declarar arreglo Basuras con ciclo for
   }
 
 
@@ -59,11 +58,17 @@ class JUEGO {
     if (estado == 0) {
       Inicio();
     }
+
     if (estado == 1) {
+      Instrucciones();
+    }
+
+
+    if (estado == 2) {
       Juganding();
     }
 
-    if (estado == 2) {
+    if (estado == 3) {
       GameOver();
     }
   }
@@ -84,8 +89,21 @@ class JUEGO {
     text("Gatito Come Sushi", width/2, height/2);
     fill(255);
     textSize(30);
-    text("Toca A para CONTINUAR", width/2, height/2 + 300);
+    text("Candela Ibañez y Guadalupe Holsman", width/2, height/2 + 50);
+    textSize(30);
+    text("Toca a para CONTINUAR", width/2, height/2 + 300);
   }
+
+  void Instrucciones() {
+
+    imageMode (CENTER);
+    image (instrucciones, width/2, height/2, width, height);
+    fill(0);
+    textSize(30);
+    text("Toca b para CONTINUAR", width/2, height/2 + 300);
+  }
+
+
 
   void GameOver() {
 
@@ -105,12 +123,10 @@ class JUEGO {
     text("GAME OVER", width/2, height/2);
     fill(255);
     textSize(30);
-    text("Toca B para REINICIAR", width/2, height/2 + 300);
+    text("Toca c  para REINICIAR", width/2, height/2 + 300);
     puntajeJuganding.puntaje(50);
-    //puntajeJuganding.tamanoTexto= 50;
     puntajeJuganding.posicionxPuntos = width/2;
     puntajeJuganding.posicionyPuntos = height/2 + 80;
-    gatitoGO.mostrar();
   }
 
   void Juganding() {
@@ -131,13 +147,9 @@ class JUEGO {
     image (restaurant, width/2, height/2, width+30, height+30);
     gatito.mostrar();
     fill(0);
-    puntajeJuganding.puntaje(50);
+    puntajeJuganding.puntaje(40);
     //puntajeJuganding.puntajeNegativo();
     popStyle ();
-
-    /*for (int x=0; x<vidas.length; x+= 10) {             
-     vidas[x].mostrarVidas();
-     }*/
 
     vidas1.mostrarVidas();
     vidas2.mostrarVidas();
@@ -156,11 +168,11 @@ class JUEGO {
       sushiExtremo.mover();
     }
 
- if (puntajeJuganding.x > 3) {
+    if (puntajeJuganding.x > 3) {
       basuraExtrema.colorBasura = color( 0, 0, 200);
       basuraExtrema.mostrar();
       basuraExtrema.mover();
-   }
+    }
 
 
 
@@ -178,14 +190,6 @@ class JUEGO {
     for (int i=0; i<sushis.length; i++) {
       float DistanSushis = dist(mouseX, gatito.posicionyGatito, sushis[i].posicionxSushi, sushis[i].posicionySushi);
 
-      /*   pushStyle();
-       noFill();
-       ellipseMode (CENTER);
-       strokeWeight( 3 );
-       circle( mouseX, gatito.posicionyGatito, 100 );  //circulo del gatito
-       // circle( sushis[i].posicionxSushi, sushis[i].posicionySushi, 50 ); //circulos sushis
-       popStyle();
-       */
 
       if (DistanSushis < 90) {   // accion de comer
         maullido.trigger ();
@@ -203,11 +207,10 @@ class JUEGO {
     float DistanSushis = dist(mouseX, gatito.posicionyGatito, sushiExtremo.posicionxSushi, sushiExtremo.posicionySushi);
 
     if (DistanSushis < 90) {   // accion de comer
-     maullido.trigger ();
-     gatito.relleno = color(255, 100, 20);
+      maullido.trigger ();
+      gatito.relleno = color(255, 100, 20);
       sushiExtremo.reciclar();
       puntajeJuganding.subirpuntajeExtremo ();
-      
     }
   }
 
@@ -217,7 +220,7 @@ class JUEGO {
     float DistanBasuras = dist(mouseX, gatito.posicionyGatito, basuraExtrema.posicionxBasura, basuraExtrema.posicionyBasura);
 
     if (DistanBasuras < 90) { 
-      maullidobasura.trigger ();// accion de comer
+      // maullidobasura.trigger ();// accion de comer
       gatito.relleno = color(200, 0, 0);
       basuraExtrema.reciclar(); 
       puntajeJuganding.bajarpuntajeExtrema ();
@@ -226,7 +229,11 @@ class JUEGO {
       vidas1.colorvidas = color (0);
       vidas2.colorvidas = color (0);
       vidas3.colorvidas = color (0);
-      estado = 2;
+      estado = 3;
+
+      perder.trigger ();
+      dojo.pause ();
+      dojo.rewind ();
     }
   }
 
@@ -237,15 +244,8 @@ class JUEGO {
     for (int i=0; i<basuras.length; i++) {
       float DistanBasuras = dist(mouseX, gatito.posicionyGatito, basuras[i].posicionxBasura, basuras[i].posicionyBasura);
 
-      /*    pushStyle();
-       noFill();
-       ellipseMode (CENTER);
-       strokeWeight( 3 );
-       circle( mouseX, gatito.posicionyGatito, 100 );  //circulo del gatito
-       popStyle();
-       */
       if (DistanBasuras < 90) {   // accion de comer
-        maullidobasura.trigger ();
+        // maullidobasura.trigger ();
         gatito.relleno = color(200, 0, 0);
         basuras[i].reciclar(); 
         puntajeJuganding.bajarpuntaje();
@@ -257,7 +257,7 @@ class JUEGO {
 
         if (puntajeJuganding.a == -3) {
           vidas3.colorvidas = color (0);
-          estado = 2;
+          estado = 3;
           perder.trigger ();
           dojo.pause ();
           dojo.rewind ();
@@ -270,10 +270,15 @@ class JUEGO {
 
     if (key == 'A' || key == 'a'  && estado==0) {
       estado = 1;
+      //  dojo.loop ();
+    }
+
+    if (key == 'b'  && estado==1) {
+      estado = 2;
       dojo.loop ();
     }
 
-    if (key == 'B' || key == 'b'  && estado==2) {
+    if (key == 'C' || key == 'c'  && estado==3) {
       estado = 0;
       Reiniciar();
     }
@@ -301,6 +306,6 @@ class JUEGO {
     }                       //Declarar arreglo
 
     sushiExtremo = new SUSHI((random (50, 750)), (random( -800, 0)), 130, 130, 4, 10);
-    basuraExtrema = new BASURA ((random (10, 780)), (random( -800, 0)), 120, 120, 8,8);
+    basuraExtrema = new BASURA ((random (10, 780)), (random( -800, 0)), 120, 120, 8, 8);
   }
 }
