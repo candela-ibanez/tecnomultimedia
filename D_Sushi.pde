@@ -1,6 +1,5 @@
 class SUSHI {
 
-
   float posicionxSushi = width/2; //Coordenada x
   float posicionySushi = height/2; //Coordenada y
   float tamano1Sushi = 50; 
